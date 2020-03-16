@@ -1,0 +1,177 @@
+{% extends "homescreen/base.html" %}
+{% load static %}
+{% block content %}
+<!--https://getbootstrap.com/docs/4.0/components/dropdowns/-->
+<!--https://nagix.github.io/chartjs-plugin-colorschemes/-->
+<!--https://stackoverflow.com/questions/25594478/different-color-for-each-bar-in-a-bar-chart-chartjs-->
+<!--https://stackoverflow.com/questions/39871319/automatic-colors-assignment-in-chart-js-2-x-doesnt-work-anymore-used-to-work-i-->
+<!--solution by Zeke Egherman-->
+<!--style="height: 50px;padding-top: 15px; background: #36304a; align-content: center; color: white; font-weight: bold; border-radius: 10px"-->
+<div class="row " >
+
+          <div class="col-lg-3 col-md-3 col-sm-3" style="align-content: center"  >
+            <div class="card card-stats" >
+              <div class="card-body" >
+                <div class="row">
+                  <div class="col-2 col-md-3" >
+                    <img  src="\static\images\record.png" height="40">
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="text-center">
+                      <p class="card-category; font-size:20px ; font-weight: bold "> Total Number of </p>
+                        <p class="card-title" style="color:#0c2646;  font-size:20px ; font-weight: bold ">Movies </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <div class="text-center" style="color: #d39e00;font-size:20px ; font-weight: bold"  >
+                    {{ T_movie_count }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-3" >
+            <div class="card card-stats" >
+              <div class="card-body" >
+                <div class="row">
+                  <div class="col-2 col-md-3" >
+                    <img  src="\static\images\record.png" height="40">
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="text-center">
+                      <p class="card-category; font-size:20px ; font-weight: bold "> Total Number of </p>
+                        <p class="card-title" style="color:#0c2646;  font-size:20px ; font-weight: bold ">Years </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <div class="text-center" style="color: #d39e00;font-size:20px ; font-weight: bold"  >
+                    {{ T_unique_count }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+</div>
+
+<div class="row">
+<div class="col-lg-6 " >
+          <div class="card-chart " >
+                <div class="card-header " >
+                  <h5 class="card-title text-center "style="color:White;" >Movie Count By year</h5>
+                    <p class="card-category text-center "style="color:White;">Amount of movies by year in database</p>
+                    <div class="inside">
+                      <canvas id="myChart" width="40" height="40"></canvas>
+                  </div>
+                </div>
+          </div>
+      </div>
+
+<div class="col-lg-6 " >
+          <div class="card-chart " >
+                <div class="card-header " >
+                  <h5 class="card-title text-center "style="color:White;" >Rating Distribution</h5>
+                    <p class="card-category text-center "style="color:White;">Distribution of Movies by Rating</p>
+                    <div class="inside">
+                      <canvas id="myChart1" width="40" height="40"></canvas>
+                  </div>
+                </div>
+          </div>
+      </div>
+
+</div>
+<script>
+{% block jquery %}
+var len = {{ unqiue_year }}
+var myData={{ movie_count_by_year }}
+var dist_data= {{ movie_imdb_rating }}
+console.log(len)
+$.ajax({
+    success: function(data)
+    {
+        barchart()
+        barchart1()
+        <!--getRandomColor()-->
+     },
+     error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+     }
+     })
+
+function barchart() {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: {{ unqiue_year }},
+            datasets: [{
+                label: '# Movie Count',
+                data: {{ movie_count_by_year }},
+                backgroundColor: palette('tol', myData.length).map(function(hex) {return '#' + hex;}),
+                borderColor: palette('tol', myData.length).map(function(hex) {return '#' + hex;}),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                    legend: {
+                            display: true,
+                },
+                yAxes: [{
+                        ticks: {
+                             beginAtZero: true,
+                             display: false
+                                }
+                        }]
+                    }
+                 }
+    });
+}
+
+function barchart1() {
+    var ctx = document.getElementById('myChart1').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                data: {{ movie_imdb_rating }},
+                backgroundColor: palette('tol', dist_data.length).map(function(hex) {return '#' + hex;}),
+                borderColor: palette('tol', dist_data.length).map(function(hex) {return '#' + hex;}),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            yAxes: {
+                    display: false,
+                },
+            legend: {
+                display: false,
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                            }
+                         }],
+                 xAxes: [{
+                        display: false
+                        }]
+                    }
+        }
+    });
+
+}
+
+
+
+{% endblock jquery %}
+</script>
+
+
+
+{% endblock %}

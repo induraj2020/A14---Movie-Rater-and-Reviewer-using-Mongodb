@@ -1,0 +1,203 @@
+/*!
+
+ =========================================================
+ * Paper Dashboard 2 - v2.0.0
+ =========================================================
+
+ * Product Page: https://www.creative-tim.com/product/paper-dashboard-2
+ * Copyright 2018 Creative Tim (http://www.creative-tim.com)
+
+ * Designed by www.invisionapp.com Coded by www.creative-tim.com
+
+ =========================================================
+/*--------------------------------
+
+nucleo-icons Web Font - built using nucleoapp.com
+License - nucleoapp.com/license/
+
+-------------------------------- */
+/*------------------------
+	base class definition
+-------------------------*/
+
+
+
+
+h5,
+.h5 {
+  font-size: 1.57em;
+  line-height: 1.4em;
+  margin-bottom: 15px;
+  color: #b21f2d;
+}
+
+/*------------------------
+	font icons
+-------------------------*/
+
+
+
+
+.card {
+  border-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+  background-color: transparent;
+  margin: 3px 5px 15px;
+  position: relative;
+  border: 0 teal;
+  -webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+  -moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+  -o-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+  -ms-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+  transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+
+}
+
+
+.category,
+.card-category {
+  text-transform: capitalize;
+  font-weight: 400;
+  color: #9A9A9A;
+  font-size: 0.7142em;
+}
+
+.card-category {
+  font-size: 1em;
+}
+
+
+
+/*card head*/
+.card .card-header:not([data-background-color]) {
+  background-color:transparent;
+}
+
+/*footer*/
+.card .card-footer {
+  background-color: transparent;
+  border: 0;
+}
+
+
+
+/*card title word*/
+.card-stats .card-body .numbers {
+  text-align: right;
+  font-size: 2em;
+}
+
+.card-stats .card-body .numbers p {
+  margin-bottom: 0;
+}
+
+.card-stats .card-body .numbers .card-category {
+  color: #9A9A9A;
+  font-size: 3px;
+  line-height: 1em;
+
+}
+
+
+.card-stats .card-footer {
+  padding: 0px 15px 15px;
+}
+
+.card-stats .card-footer .stats {
+  color: #9A9A9A;
+}
+
+.card-stats .card-footer hr {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.card-stats .card-footer .stats{
+  text-align: center;
+  font-size: 24px;
+}
+
+.card-chart .card-header{
+background-color: transparent;
+border-color: transparent;}
+
+.card-chart .card-header .card-title {
+  margin-top: 3px;
+  margin-bottom: 0px;
+  text-align: left;
+  border-color: transparent;
+  text-transform: capitalize;
+  color: #0c2646;
+  ont-weight: 500;
+  text-align: left;
+  font-size: 18px;
+}
+
+.card-chart .card-header .card-category {
+  margin-bottom: -10px;
+  font-weight: 400;
+  font-size: 10px;
+  color: #9A9A9A;
+  text-align: left;
+
+}
+
+.card-chart .card-header {
+  margin-top: -10px;
+  margin-bottom: 0px;
+}
+.card-chart .inside-left{
+  padding-top: 40px;
+  margin-bottom: 0;
+}
+.card-chart .card-header .inside{
+  margin-bottom: -20px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer .footer-nav {
+    padding-left: 21px;
+  }
+  .footer .credits {
+    padding-right: 15px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .card-stats [class*="col-"] .statistics::after {
+    display: none;
+  }
+  .main-panel .content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .footer nav {
+    display: block;
+    margin-bottom: 5px;
+    float: none;
+  }
+  .landing-page .section-story-overview .image-container:nth-child(2) {
+    margin-left: 0;
+    margin-bottom: 30px;
+  }
+  .card .form-horizontal .col-md-3.col-form-label {
+    text-align: left;
+  }
+}
+
+
+
+
+@media screen and (max-width: 413px) {
+  .fixed-plugin .dropdown.show-dropdown.show .dropdown-menu.show {
+    width: 225px !important;
+  }
+  .fixed-plugin .dropdown.show-dropdown.show .dropdown-menu.show[x-placement=top-start] {
+    transform: translate3d(0, 400px, 0) !important;
+  }
+  .fixed-plugin .dropdown.show-dropdown.show .dropdown-menu.show:before,
+  .fixed-plugin .dropdown.show-dropdown.show .dropdown-menu.show:after {
+    bottom: 360px !important;
+  }
+}

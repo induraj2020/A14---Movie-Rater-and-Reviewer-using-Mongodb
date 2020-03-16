@@ -1,0 +1,51 @@
+{% extends "homescreen/base.html" %}
+{% block content %}
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="20" class="d-inline-block align-top" alt="">
+    <p class="text-primary" align="centre" >Top 10 Movies</p>
+  </a>
+</nav>
+<table class="table table-striped table-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Title</th>
+      <th scope="col">Year</th>
+      <th scope="col">IMDB</th>
+      <th scope="col">User Ratings</th>
+    </tr>
+
+    {% for movie in moviess %}
+    <tr>
+      <td>
+        <a href="details/{{ movie.id }}/">
+          <img src="{{  movie.posterURL }}" width="45" height="67" alt=" {{ movie.title }}" />
+        </a>
+      </td>
+      <td> <a href="details/{{ movie.id }}/"> {{ movie.title }}  </a></td>
+      <td>{{ movie.year }}</td>
+      <td>{{ movie.imdbRating }}</td>
+      <td>
+      {% for rate in movie.ratings %}
+        {{ rate.ratingValue }}  ,
+      {% empty %}
+        . No ratings!
+      {% endfor %}
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td>No films in database yet.</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if user.is_superuser %}
+<div>
+    <a class="btn btn-success" href="../admin/CRUD/movies/add/" role="button">Add Movies</a>
+</div>
+ {% endif %}
+{% endblock content %}

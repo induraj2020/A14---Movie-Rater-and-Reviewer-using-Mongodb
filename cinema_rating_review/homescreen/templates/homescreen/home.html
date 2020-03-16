@@ -1,0 +1,65 @@
+{% extends "homescreen/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+<div class="container">
+    <div class="row">
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="1" class="active"></li>
+    <li data-target="#demo" data-slide-to="0"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+      <div class="carousel-item">
+       <img src="{% static 'laaa6.jpg' %}" alt="New York" width="1100" height="600">
+         <div class="carousel-caption d-none d-md-block">
+            <h1 style="color:#f4df41;"> Machines Learn - Just Teach Them </h1>
+            <h2 style="color:#f4df41;">  The Future of Today </h2>
+        </div>
+      </div>
+      <div class="carousel-item">
+      <img src="{% static 'la4.jpg' %}" alt="New York" width="1100" height="600">
+         <div class="carousel-caption d-none d-md-block">
+            <h1 style="color:#f4df41;"> Data Speaks If You listen </h1>
+            <h2 style="color:#f4df41;"> - karl Pearson</h2>
+        </div>
+      </div>
+     <div class="carousel-item active">
+      <img src="{% static 'la1.jpg' %}" alt="Los Angeles" width="1100" height="600">
+       <div class="carousel-caption d-none d-md-block">
+            <h1 style="color:#f4e541;"> Harness The Power Of Big Data </h1>
+            <h2 style="color:#f4e541;"> Rate your Films </h2>
+        </div>
+     </div>
+     <div class="carousel-item">
+      <img src="{% static 'la3.jpg' %}" alt="Chicago" width="1100" height="600">
+       <div class="carousel-caption d-none d-md-block">
+            <h1 style="color:#f4df41;"> Statistics Grammar Of Science </h1>
+            <h2 style="color:#f4df41;"> - karl Pearson</h2>
+        </div>
+     </div>
+
+     </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+   </div>
+    </div>
+</div>
+
+{% endblock content %}
+        
+
+        

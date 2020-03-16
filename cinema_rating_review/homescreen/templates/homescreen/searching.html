@@ -1,0 +1,92 @@
+{% extends "homescreen/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="GET" >
+    <h8><strong> Feel free to choose any option and if a option doesn't interest you, leave it as it is </strong></h8>
+      <div class="container mt-5">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                  <label for="inputState">Program's</label>
+                  <select id="inputState" class="form-control" name="program">
+                    <option selected>Choose...</option>
+                      {% for item in prg %}
+                        <option>{{ item }}</option>
+                      {% endfor %}
+                  </select>
+            </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputState">Ville</label>
+          <select id="inputState" class="form-control" name="ville">
+            <option selected>Choose...</option>
+            {% for item in ville %}
+                <option>{{ item }}</option>
+              {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputState">Code Postal</label>
+          <select id="inputState" class="form-control" name="code_postal">
+            <option selected>Choose...</option>
+            {% for item in cp %}
+                <option>{{ item }}</option>
+              {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputState">Remuneration</label>
+          <select id="inputState" class="form-control" name="remuneration">
+            <option selected>Choose...</option>
+            {% for item in rem %}
+                <option>{{ item }}</option>
+              {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputState">Year's from</label>
+          <select id="inputState" class="form-control" name="years_from">
+            <option selected>Choose...</option>
+            {% for item in year %}
+                <option>{{ item }}</option>
+              {% endfor %}
+          </select>
+            <span class="alert" role="alert" style="color:red">
+                {% if message %}
+                    <h8> Years From-- must be smaller</h8>
+                {% endif %}
+            </span>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputState">Year's To</label>
+          <select id="inputState" class="form-control" name="years_to">
+            <option selected>Choose...</option>
+            {% for item in year %}
+                <option>{{ item }}</option>
+              {% endfor %}
+          </select>
+            <span class="alert" role="alert" style="color:red">
+                {% if message %}
+                    <h8 > Years To-- must be greater</h8>
+                {% endif %}
+            </span>
+        </div>
+ </div>
+        <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Check me out
+          </label>
+        </div>
+    </div>
+        <button type="submit" class="btn btn-primary"> Search </button>
+
+
+    </div>
+</form>
+ <h1> hello </h1>
+{% endblock content %}
